@@ -1,3 +1,6 @@
+#Найдите номера моделей и цены всех имеющихся в продаже продуктов (любого типа)
+#производителя B (латинская буква)
+
 import csv
 
 def readcsv(file):
@@ -51,6 +54,6 @@ for i in res:
 res.insert(0, ['#','model','price'])
 print(res)
 
-with open('res.csv', 'w', newline='') as file:
+with open('res_sql7.csv', 'w', newline='') as file:
     writer = csv.writer(file, delimiter=',')
     writer.writerows(res)

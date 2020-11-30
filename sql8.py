@@ -1,3 +1,5 @@
+#Найдите производителя, выпускающего ПК, но не ПК-блокноты
+
 import csv
 
 with open("companyProduct.csv") as product:
