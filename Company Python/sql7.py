@@ -1,15 +1,16 @@
-#Найдите номера моделей и цены всех имеющихся в продаже продуктов (любого типа)
-#производителя B (латинская буква)
+# Найдите номера моделей и цены всех имеющихся в продаже продуктов (любого типа)
+# производителя B (латинская буква)
 
 import csv
 
 def readcsv(file):
     with open(file) as table:
         lines = csv.reader(table, delimiter=',')
-        arr=[]
+        arr = []
         for line in lines:
             arr.append(line)
     return arr
+
 
 products = readcsv("companyProduct.csv")
 pcs = readcsv("companyPC.csv")
@@ -22,7 +23,7 @@ for product in products:
         Products[product[2]] = product[3]
 # print(Products)
 
-PCs={}
+PCs = {}
 for pc in pcs:
     if pc[2] in Products:
         PCs[pc[2]] = pc[7]
@@ -40,18 +41,18 @@ for laptop in laptops:
         Laptops[laptop[2]] = laptop[6]
 # print(Laptops)
 
-res=[]
+res = []
 for i in PCs:
     res.append([i, PCs[i]])
 for i in Printers:
     res.append([i, Printers[i]])
 for i in Laptops:
     res.append([i, Laptops[i]])
-n=0
+n = 0
 for i in res:
-    n+=1
+    n += 1
     i.insert(0, n)
-res.insert(0, ['#','model','price'])
+res.insert(0, ['#', 'model', 'price'])
 print(res)
 
 with open('res_sql7.csv', 'w', newline='') as file:
